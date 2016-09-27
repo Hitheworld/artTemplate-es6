@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="utf-8"/>
+	<title>es6 项目</title>
+</head>
+<body>
+	<div id="list"></div>
+	<div id="content"></div>
+	<div id="inline"></div>
+	<script type="text/html" id="inlineTpl">
+		<h1>{{title}}</h1>
+		<ul>
+			{{each list as value i}}
+			<li>索引 {{i + 1}} ：{{value}}</li>
+			{{/each}}
+		</ul>
+	</script>
+	<script src="./bundle.js"></script><script type="text/javascript" src="bundle.min.js"></script></body>
+</html>
