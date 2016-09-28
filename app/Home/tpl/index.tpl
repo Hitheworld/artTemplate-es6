@@ -1,4 +1,4 @@
-<!--{{include './public/header'}}-->
+
 <div id="main">
     <h3 style="root">{{title}}</h3>
     <ul>
@@ -7,4 +7,3 @@
         {{/each}}
     </ul>
 </div>
-<!--{{include './public/footer'}}-->

@@ -28,6 +28,8 @@ if (env === 'build') {
 
 var config = {
 	entry: [
+		'eventsource-polyfill', //兼容ie
+		'webpack-hot-middleware/client?reload=true', //实时更新
 		'webpack/hot/dev-server',
 		'webpack-dev-server/client?http://localhost:3000',
 		'./app/index.js'      //入口文件
@@ -45,8 +47,14 @@ var config = {
 			},
 			{
 				test: /\.js$/,
-				loaders: ['babel'],
-				exclude: /node_modules/
+				exclude: /(node_modules|bower_components)/,
+				loader: 'babel',
+				query: {
+					presets: ['es2015','stage-0'],
+					plugins : [
+						'transform-runtime',
+					]
+				}
 			},
 			{
 				test: /\.css$/,
@@ -61,6 +69,22 @@ var config = {
 				test: /\.(png|jpg)$/,
 				loader: 'url?limit=25000'
 			},
+			{
+				test: /\.eot/,
+				loader : 'file?prefix=font/'
+			},
+			{
+				test: /\.woff/,
+				loader : 'file?prefix=font/&limit=10000&mimetype=application/font-woff'
+			},
+			{
+				test: /\.ttf/,
+				loader : 'file?prefix=font/'
+			},
+			{
+				test: /\.svg/,
+				loader : 'file?prefix=font/'
+			}
 		]
 	},
 	postcss: [

@@ -1,5 +1,6 @@
+import 'babel-runtime/core-js/promise';  //模拟 ES2015 环境
 import $ from 'jquery';
-import {template} from 'art-template/dist/template';
+import template from 'art-template/dist/template';
 
 import IndexTpl from './tpl/index.tpl';
 import './../css/index.less';
