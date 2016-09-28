@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import {template} from 'art-template/dist/template';
+import template from 'art-template/dist/template';
 
 import IndexTpl from './tpl/index.tpl';
 

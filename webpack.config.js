@@ -29,7 +29,6 @@ if (env === 'build') {
 var config = {
 	entry: [
 		'eventsource-polyfill', //兼容ie
-		'webpack-hot-middleware/client?reload=true', //实时更新
 		'webpack/hot/dev-server',
 		'webpack-dev-server/client?http://localhost:3000',
 		'./app/index.js'      //入口文件
