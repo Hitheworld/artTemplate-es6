@@ -11,7 +11,7 @@ var data = {
 	list: [
 		{
 			title: '<油价>调整周期缩至10个工作日 无4%幅度限制',
-			url: '#/author'
+			url: '#/about'
 		},
 		{
 			title: '明起汽油价格每吨下调310元 单价回归7元时代',

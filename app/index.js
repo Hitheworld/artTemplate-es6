@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import {Router} from 'director';
 
 var home = function() {
@@ -6,8 +7,11 @@ var home = function() {
 	});
 };
 
-var author = function () {
-	console.log("author");
+var about = function () {
+	require(['./About/index'], function (e) {
+		console.log(e);
+		console.log("about");
+	});
 };
 
 var books = function () {
@@ -25,15 +29,64 @@ var error = function() {
 }
 
 var routes = {
-	'/': home,
-	'/author': author,
-	'/books': [books, function() {
+	'/home': {
+		before: function (id) {
+			console.log("1");
+			//$("#content").empty();
+		},
+		on: function (id) {
+			console.log("2")
+			home();
+		},
+		after: function (id){
+			alert("离开home");
+			history.go(0);
+		}
+	},
+	'/about': {
+		before: function (id) {
+			console.log("author-----1");
+			$("#content").empty();
+		},
+		on: function (id) {
+			console.log("author-------2")
+			about();
+		},
+		after: function (id){
+			alert("离开about");
+			history.go(0);
+		}
+	},
+	'/books': [{
+		before: function (id) {
+			console.log("books-------1");
+			$("#content").empty();
+		},
+		on: function (id) {
+			console.log("books---------2")
+			books();
+		}
+	}, function() {
 		console.log("An inline route handler.");
 	}],
 	'/books/view/:bookId': viewBook,
-	'*': error,
+	'notfound': {
+		before: function (id) {
+			console.log("books-------1");
+			$("#content").empty();
+		},
+		on: function (id) {
+			console.log("books---------2")
+			error();
+		}
+	},
 };
 
 var router = new Router(routes);
-
 router.init();
+router.configure({
+	on: function (data) {
+
+	}
+});
+
