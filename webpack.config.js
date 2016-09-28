@@ -54,7 +54,7 @@ var config = {
 			},
 			{
 				test: /\.less$/,
-				loaders: ['style', 'css?modules!postcss', 'less'],
+				loaders: ['style', 'css?modules!postcss', 'less?modules!postcss'],
 				include: path.resolve(__dirname, 'app')
 			},
 			{
