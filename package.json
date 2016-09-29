@@ -7,8 +7,7 @@
     "art-template": "^3.0.3",
     "babel-polyfill": "^6.13.0",
     "director": "^1.2.8",
-    "jquery": "^1.12.4",
-    "layer-dialog": "^2.1.0"
+    "jquery": "^1.12.4"
   },
   "devDependencies": {
     "art-template-loader": "^0.1.4",
@@ -41,6 +40,7 @@
     "sinon": "^1.17.6",
     "style-loader": "^0.13.1",
     "tmodjs": "^1.0.3",
+    "url-loader": "^0.5.7",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.1",
     "webpack-hot-middleware": "^2.12.2"

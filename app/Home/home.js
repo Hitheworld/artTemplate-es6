@@ -1,9 +1,15 @@
 import 'babel-runtime/core-js/promise';  //模拟 ES2015 环境
 import $ from 'jquery';
 import template from 'art-template/dist/template';
-
+//import layer from 'layer-dialog/layer';
 import IndexTpl from './tpl/index.tpl';
-import './../css/index.less';
+
+//import './assets/css/index.less';
+
+
+$("#content").on('click','.ai',function(){
+	alert("进来看看!")
+});
 
 // 演示JSON数据
 var data = {

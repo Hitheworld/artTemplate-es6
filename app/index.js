@@ -2,6 +2,7 @@
 import $ from 'jquery';
 import {Router} from 'director';
 
+
 var home = function() {
 	require(['./Home/home'], function (e) {
 		console.log(e);
