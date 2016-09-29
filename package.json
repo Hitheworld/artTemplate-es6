@@ -7,7 +7,8 @@
     "art-template": "^3.0.3",
     "babel-polyfill": "^6.13.0",
     "director": "^1.2.8",
-    "jquery": "^1.12.4"
+    "jquery": "^1.12.4",
+    "layer-dialog": "^2.1.0"
   },
   "devDependencies": {
     "art-template-loader": "^0.1.4",

@@ -1,94 +1,69 @@
-//import 'babel-polyfill';
+import 'babel-polyfill';
 import $ from 'jquery';
 import {Router} from 'director';
 
+import HomeIndex from './Home/HomeIndex';
+import AboutIndex from './About/AboutIndex';
+import ErrorIndex from './Error/ErrorIndex';
 
-var home = function() {
-	require(['./Home/home'], function (e) {
-		console.log(e);
-	});
-};
+class Index {
+	constructor(){
+		this.init();
+	};
 
-var about = function () {
-	require(['./About/index'], function (e) {
-		console.log(e);
-		console.log("about");
-	});
-};
+	init() {
+		this.routes = {
+			'/home': {
+				before: function () {
+					console.log("1");
+					//$("#content").empty();
+				},
+				on: function () {
+					console.log("2")
+					new HomeIndex();
+				},
+				after: function (id){
+					alert("离开home");
+					history.go(0);
+				}
+			},
+			'/about/:uid': {
+				before: function (id) {
+					console.log("author-----1");
+					$("#content").empty();
+				},
+				on: function (id) {
+					console.log("author-------2")
+					new AboutIndex(id);
+				},
+				after: function (id){
+					alert("离开about");
+					history.go(0);
+				}
+			},
+			'notfound': {
+				before: function () {
+					console.log("books-------1");
+					$("#content").empty();
+				},
+				on: function () {
+					console.log("books---------2")
+					new ErrorIndex();
+				}, function() {
+					console.log("An inline route handler.");
+				}
+			}
+		};
 
-var books = function () {
-	console.log("books");
-};
+		var router = new Router(this.routes);
+		router.init();
+		router.configure({
+			on: function (data) {
 
-var viewBook = function (bookId) {
-	console.log("viewBook: bookId is populated: " + bookId);
-};
+			}
+		});
+	};
 
-var error = function() {
-	require(['./Error/error'], function (e) {
-		console.log(e);
-	});
 }
 
-var routes = {
-	'/home': {
-		before: function (id) {
-			console.log("1");
-			//$("#content").empty();
-		},
-		on: function (id) {
-			console.log("2")
-			home();
-		},
-		after: function (id){
-			alert("离开home");
-			history.go(0);
-		}
-	},
-	'/about': {
-		before: function (id) {
-			console.log("author-----1");
-			$("#content").empty();
-		},
-		on: function (id) {
-			console.log("author-------2")
-			about();
-		},
-		after: function (id){
-			alert("离开about");
-			history.go(0);
-		}
-	},
-	'/books': [{
-		before: function (id) {
-			console.log("books-------1");
-			$("#content").empty();
-		},
-		on: function (id) {
-			console.log("books---------2")
-			books();
-		}
-	}, function() {
-		console.log("An inline route handler.");
-	}],
-	'/books/view/:bookId': viewBook,
-	'notfound': {
-		before: function (id) {
-			console.log("books-------1");
-			$("#content").empty();
-		},
-		on: function (id) {
-			console.log("books---------2")
-			error();
-		}
-	},
-};
-
-var router = new Router(routes);
-router.init();
-router.configure({
-	on: function (data) {
-
-	}
-});
-
+export default new Index();
