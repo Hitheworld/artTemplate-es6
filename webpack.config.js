@@ -15,12 +15,13 @@ var plugins = [
 	}),
 	new webpack.optimize.OccurenceOrderPlugin(),
 	new webpack.optimize.UglifyJsPlugin(),
-	new ExtractTextPlugin("[name]-[hash].css"),
+	//new ExtractTextPlugin("[name]-[hash].css"),
 	new webpack.ProvidePlugin({
 		$: "jquery",
 		jQuery: "jquery",
 		"window.jQuery": "jquery"
 	}),
+	new webpack.HotModuleReplacementPlugin(),   //全局开启代码热替换
 ];
 if (env === 'build') {
 	var UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
@@ -63,11 +64,11 @@ var config = {
 			},
 			{
 				test: /\.css$/,
-				loader: ExtractTextPlugin.extract('style', 'css?modules!postcss')
+				loader: ExtractTextPlugin.extract('style', 'css')
 			},
 			{
 				test: /\.less$/,
-				loaders: ['style', 'css?modules!postcss', 'less?modules!postcss'],
+				loaders: ['style', 'css', 'less'],
 				include: path.resolve(__dirname, 'app')
 			},
 			{
@@ -103,7 +104,7 @@ var config = {
 		proxy: {
 			'/dual-student/*': {
 				changeOrigin: true,
-				target: 'http://dev1.boxuegu.com:58000/',
+				target: 'http://127.0.0.1:3000/',
 				host: 'boxuegu.com'
 			}
 		}

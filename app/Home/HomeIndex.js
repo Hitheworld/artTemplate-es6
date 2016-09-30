@@ -23,7 +23,7 @@ export default class HomeIndex{
 		});
 
 
-		$.get('./data.json',function(data, state) {
+		$.get('data.json',function(data, state) {
 			console.log(data.success == true);
 			var db = data.resultObject;
 			if(data.success == true){

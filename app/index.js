@@ -3,6 +3,7 @@ import $ from 'jquery';
 import {Router} from 'director';
 
 //import '../assets/less/index.less';
+import './Home/home.less';
 
 import HomeIndex from './Home/HomeIndex';
 import AboutIndex from './About/AboutIndex';
