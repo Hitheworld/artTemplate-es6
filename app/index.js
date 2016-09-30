@@ -2,6 +2,8 @@ import 'babel-polyfill';
 import $ from 'jquery';
 import {Router} from 'director';
 
+//import '../assets/less/index.less';
+
 import HomeIndex from './Home/HomeIndex';
 import AboutIndex from './About/AboutIndex';
 import ErrorIndex from './Error/ErrorIndex';
@@ -13,7 +15,7 @@ class Index {
 
 	init() {
 		this.routes = {
-			'/home': {
+			'/(home)': {
 				before: function () {
 					console.log("1");
 					//$("#content").empty();

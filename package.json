@@ -8,7 +8,9 @@
     "babel-polyfill": "^6.13.0",
     "director": "^1.2.8",
     "jquery": "^1.12.4",
-    "layer-dialog": "^2.1.0"
+    "jszip": "^3.1.2",
+    "layer-dialog": "^2.1.0",
+    "xlsx": "^0.8.0"
   },
   "devDependencies": {
     "art-template-loader": "^0.1.4",
@@ -31,6 +33,7 @@
     "es5-shim": "^4.5.9",
     "eslint": "^3.6.1",
     "eventsource-polyfill": "^0.9.6",
+    "expose-loader": "^0.7.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.22.0",
     "less": "^2.7.1",

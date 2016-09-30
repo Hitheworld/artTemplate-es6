@@ -15,7 +15,12 @@ var plugins = [
 	}),
 	new webpack.optimize.OccurenceOrderPlugin(),
 	new webpack.optimize.UglifyJsPlugin(),
-	new ExtractTextPlugin("[name]-[hash].css")
+	new ExtractTextPlugin("[name]-[hash].css"),
+	new webpack.ProvidePlugin({
+		$: "jquery",
+		jQuery: "jquery",
+		"window.jQuery": "jquery"
+	}),
 ];
 if (env === 'build') {
 	var UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
@@ -48,6 +53,7 @@ var config = {
 				test: /\.js$/,
 				exclude: /(node_modules|bower_components)/,
 				loader: 'babel',
+				loaders: ['es3ify-loader'],
 				query: {
 					presets: ['es2015','stage-0'],
 					plugins : [
@@ -86,10 +92,31 @@ var config = {
 			}
 		]
 	},
+	node: {
+		fs: "empty" // avoids error messages
+	},
 	postcss: [
 		require('autoprefixer')//调用autoprefixer插件
 	],
-	plugins: plugins
+	plugins: plugins,
+	devServer: {
+		proxy: {
+			'/dual-student/*': {
+				changeOrigin: true,
+				target: 'http://dev1.boxuegu.com:58000/',
+				host: 'boxuegu.com'
+			}
+		}
+	}
 }
+
+module.exports = {
+	loaders: [{
+		// 得到jquery模块的绝对路径
+		test: require.resolve('jquery'),
+		// 将jquery绑定为window.jQuery 和 window.$
+		loader: 'expose?jQuery!expose?$'
+	}]
+};
 
 module.exports = config;

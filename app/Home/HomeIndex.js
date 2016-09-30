@@ -1,7 +1,9 @@
 import 'babel-runtime/core-js/promise';  //模拟 ES2015 环境
 import $ from 'jquery';
 import template from 'art-template/dist/template';
-//import layer from 'layer-dialog/src/layer';
+import layer from 'layer-dialog';
+
+import XLSXIndex from './XLSXIndex';
 import IndexTpl from './tpl/index.tpl';
 
 //import './assets/css/index.less';
@@ -10,13 +12,14 @@ export default class HomeIndex{
 	constructor(){
 		console.log("constructor");
 		this.init();
+		new XLSXIndex;
 	};
 
 	init() {
 		console.log("init");
 		$("#content").on('click','.ai',function(){
-			alert("进来看看!");
-			$(this).html("哈哈");
+			window.layer.alert("进来看看!");
+			//$(this).html("哈哈");
 		});
 
 
