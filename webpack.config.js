@@ -72,7 +72,7 @@ var config = {
 				include: path.resolve(__dirname, 'app')
 			},
 			{
-				test: /\.(png|jpg)$/,
+				test: /\.(png|jpg|gif)$/,
 				loaders: ['url?limit=25000']
 			},
 			{
