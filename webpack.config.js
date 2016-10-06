@@ -73,7 +73,7 @@ var config = {
 			},
 			{
 				test: /\.(png|jpg)$/,
-				loaders: ['url?limit=25000','file']
+				loaders: ['url?limit=25000']
 			},
 			{
 				test: /\.eot/,
