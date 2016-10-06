@@ -1,5 +1,6 @@
 import 'babel-polyfill';
 import $ from 'jquery';
+import 'amazeui';
 import {Router} from 'director';
 
 require('./assets/styles/index.less');
