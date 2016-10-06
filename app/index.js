@@ -2,7 +2,8 @@ import 'babel-polyfill';
 import $ from 'jquery';
 import {Router} from 'director';
 
-require('./assets/styles/index.less')
+require('./assets/styles/index.less');
+require('layer-dialog/skin/layer.css');
 
 import HomeIndex from './Home/HomeIndex';
 import AboutIndex from './About/AboutIndex';
