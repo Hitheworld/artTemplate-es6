@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "amazeui": "^2.7.2",
     "art-template": "^3.0.3",
     "babel-polyfill": "^6.13.0",
     "director": "^1.2.8",

@@ -64,7 +64,7 @@ var config = {
 			},
 			{
 				test: /\.css$/,
-				loader: ExtractTextPlugin.extract('style', 'css')
+				loader: 'style!css' // Run both loaders
 			},
 			{
 				test: /\.less$/,

@@ -6,8 +6,6 @@ import layer from 'layer-dialog';
 import XLSXIndex from './XLSXIndex';
 import IndexTpl from './tpl/index.tpl';
 
-//import './assets/css/index.less';
-
 export default class HomeIndex{
 	constructor(){
 		console.log("constructor");
