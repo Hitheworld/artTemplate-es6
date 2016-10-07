@@ -3,8 +3,9 @@ import $ from 'jquery';
 import 'amazeui';
 import {Router} from 'director';
 
-require('./assets/styles/index.less');
-require('layer-dialog/skin/layer.css');
+//样式文件
+require('layer-dialog/skin/layer');
+require('./assets/styles/index');
 
 import HomeIndex from './Home/HomeIndex';
 import AboutIndex from './About/AboutIndex';

@@ -5,7 +5,7 @@ import template from 'art-template/dist/template';
 import layer from 'layer-dialog';
 
 import XLSXIndex from './XLSXIndex';
-import IndexTpl from './tpl/index.tpl';
+import IndexTpl from './tpl/index.html';
 
 export default class HomeIndex{
 	constructor(){

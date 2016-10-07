@@ -39,6 +39,11 @@ var config = {
 		'webpack-dev-server/client?http://localhost:3000',
 		'./app/index.js'      //入口文件
 	],                //入口文件
+	resolve: {
+		alias: {},
+		extensions: ['', '.less', '.css', '.js', '.json']
+	},
+	clearBeforeBuild: true,  //清除之前构建的旧文件，以便重新构建
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: outputFile
@@ -47,29 +52,28 @@ var config = {
 		loaders: [
 			// 为webpack指定loaders
 			{
-				test: /\.tpl$/,
+				test: /\.(tpl|html|html)$/,
 				loader: 'art-template-loader/index.js',
 			},
 			{
 				test: /\.js$/,
 				exclude: /(node_modules|bower_components)/,
 				loader: 'babel',
-				loaders: ['es3ify-loader'],
 				query: {
-					presets: ['es2015','stage-0'],
 					plugins : [
-						'transform-runtime',
-					]
+						'transform-runtime','babel-plugin-transform-decorators-legacy'
+					],
+					presets: ['es2015','stage-0'],
 				}
 			},
 			{
 				test: /\.css$/,
-				loader: 'style!css' // Run both loaders
+				loader: 'style!css!autoprefixer' // Run both loaders
 			},
 			{
 				test: /\.less$/,
-				loaders: ['style', 'css', 'less'],
-				include: path.resolve(__dirname, 'app')
+				loader: 'style!css!autoprefixer!less',
+				exclude: /node_modules/
 			},
 			{
 				test: /\.(png|jpg|gif)$/,
@@ -110,14 +114,5 @@ var config = {
 		}
 	}
 }
-
-module.exports = {
-	loaders: [{
-		// 得到jquery模块的绝对路径
-		test: require.resolve('jquery'),
-		// 将jquery绑定为window.jQuery 和 window.$
-		loader: 'expose?jQuery!expose?$'
-	}]
-};
 
 module.exports = config;
