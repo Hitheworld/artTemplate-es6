@@ -1,7 +1,7 @@
 import 'babel-runtime/core-js/promise';  //模拟 ES2015 环境
 import $ from 'jquery';
 import 'amazeui';
-import template from 'art-template';
+import template from 'art-template/dist/template';
 import layer from 'layer-dialog';
 
 import ErrorIndex from '../Error/ErrorIndex';
@@ -33,9 +33,9 @@ export default class HomeIndex{
 			_this.db.load = true;
 			console.log(data.success == true);
 			if(data.success == true && _this.db.load == true){
-				//$("#content").html(IndexTpl(data));
+				//$("#content").html(template(data));
 				$("#content").html(IndexTpl(data));
-				template(data);
+				template('content', data);
 			}else {
 				$("#content").html('<div>数据加载中...</div>');
 			}
