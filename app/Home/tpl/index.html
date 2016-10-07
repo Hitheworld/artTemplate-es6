@@ -1,11 +1,13 @@
 
 <div id="main">
-    <h3 class="root">{{title}}</h3>
+{{if success}}
+    <h3 class="root">{{resultObject.title}}</h3>
     <ul>
-        {{each list}}
+        {{each resultObject.list}}
         <li><a href="{{$value.url}}">{{$value.title}}</a></li>
         {{/each}}
     </ul>
+{{/if}}
 
     <button
             type="button"
@@ -14,7 +16,7 @@
         Modal
     </button>
 
-    <img src="./assets/images/2227877.png" />
+    <img src="./assets/images/2227877.png" data-src="image2x.png" />
 
     <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-1">
         <div class="am-modal-dialog">

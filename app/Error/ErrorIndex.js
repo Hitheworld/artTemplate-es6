@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import template from 'art-template/dist/template';
 
-import ErrorTpl from './tpl/index.tpl';
+import ErrorTpl from './tpl/index.html';
 
 export default class ErrorIndex {
 	constructor(){

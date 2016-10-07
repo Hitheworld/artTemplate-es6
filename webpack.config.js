@@ -53,7 +53,7 @@ var config = {
 			// 为webpack指定loaders
 			{
 				test: /\.(tpl|html|html)$/,
-				loader: 'art-template-loader/index.js',
+				loader: 'art-template-loader',
 			},
 			{
 				test: /\.js$/,
