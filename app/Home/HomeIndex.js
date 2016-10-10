@@ -3,6 +3,7 @@ import $ from 'jquery';
 import 'amazeui';
 import template from 'art-template/dist/template';
 import layer from 'layer-dialog';
+import filterXSS from 'xss';
 
 import ErrorIndex from '../Error/ErrorIndex';
 import XLSXIndex from './XLSXIndex';
@@ -27,6 +28,14 @@ export default class HomeIndex{
 			window.layer.alert("进来看看!");
 			//$(this).html("哈哈");
 		});
+
+		$("#content").on('click','.J_sub',function(){
+			//获取用户名与密码
+			var username = filterXSS($(".username").val());
+			var userpassword = filterXSS($(".userpassword").val());
+			alert("提交后的数据是:"+username+",密码是:"+ userpassword);
+		});
+
 
 
 		$.get('./assets/data/info.json',function(data, state) {
