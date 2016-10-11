@@ -2,8 +2,11 @@ import 'babel-runtime/core-js/promise';  //模拟 ES2015 环境
 import $ from 'jquery';
 import 'amazeui';
 import template from 'art-template/dist/template';
+import layer from 'layer-dialog';
+import filterXSS from 'xss';
 
 import ErrorIndex from '../Error/ErrorIndex';
+import XLSXIndex from './XLSXIndex';
 import IndexTpl from './tpl/index.html';
 
 export default class HomeIndex{
@@ -12,7 +15,10 @@ export default class HomeIndex{
 		this.db = {
 			load: false
 		};
+
 		this.init();
+		new XLSXIndex;
+
 	};
 
 	init() {
