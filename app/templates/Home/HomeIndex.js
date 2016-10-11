@@ -1,4 +1,4 @@
-import 'babel-runtime/core-js/promise';  //模拟 ES2015 环境
+import '../../../node_modules/babel-runtime/core-js/promise';  //模拟 ES2015 环境
 import $ from 'jquery';
 import 'amazeui';
 import template from 'art-template/dist/template';

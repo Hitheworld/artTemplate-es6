@@ -4,12 +4,12 @@ import 'amazeui';
 import {Router} from 'director';
 
 //样式文件
-require('layer-dialog/skin/layer');
-require('./assets/styles/index');
+require('layer-dialog/skin/layer.css');
+require('./assets/styles/index.less');
 
-import HomeIndex from './Home/HomeIndex';
-import AboutIndex from './About/AboutIndex';
-import ErrorIndex from './Error/ErrorIndex';
+import HomeIndex from './templates/Home/HomeIndex';
+import AboutIndex from './templates/About/AboutIndex';
+import ErrorIndex from './templates/Error/ErrorIndex';
 
 class Index {
 	constructor(){
