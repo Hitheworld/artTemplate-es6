@@ -4,6 +4,7 @@ import 'amazeui';
 import {Router} from 'director';
 
 //样式文件
+require('normalize.css');
 require('layer-dialog/skin/layer.css');
 require('./assets/styles/index.less');
 

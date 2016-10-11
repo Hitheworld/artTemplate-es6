@@ -5,6 +5,7 @@ import template from 'art-template/dist/template';
 
 import ErrorIndex from '../Error/ErrorIndex';
 import IndexTpl from './tpl/index.html';
+import * as common from '../../common/js/common';
 
 export default class HomeIndex{
 	constructor(){
@@ -17,6 +18,8 @@ export default class HomeIndex{
 
 	init() {
 		const _this = this;
+
+		//common.aai();
 		console.log("init");
 		$("#content").on('click','.ai',function(){
 			window.layer.alert("进来看看!");

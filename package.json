@@ -11,6 +11,7 @@
     "jquery": "^1.12.4",
     "jszip": "^3.1.2",
     "layer-dialog": "^2.1.0",
+    "normalize.css": "^5.0.0",
     "xlsjs": "^0.7.5",
     "xlsx": "^0.8.0",
     "xss": "^0.2.13"
